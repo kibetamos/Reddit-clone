@@ -1,34 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import { Article } from './article.model';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css'],
+  styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row';
- article: Article;
+  @Input() article: Article; // Use article model
 
-
-  constructor() { 
-    this.article = new Article( 
-      'Angular',
-      'http://Angular.io',
-       10);
-  }
-  voteUp(): boolean{
+  constructor() {
+  // Input populates article
+}
+  // Call method in article class
+  voteUp(): boolean {
     this.article.voteUp();
-    return false;
-  }
-
-  voteDown(): boolean{
+    return false; // Stops page reload
+}
+  // Call method in article class
+  voteDown(): boolean {
     this.article.voteDown();
-    return false;
-  }
-
+    return false; // Stops page reload
+}
   ngOnInit() {
   }
 }
-
