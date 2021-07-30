@@ -1,28 +1,28 @@
 export class Article {
-  title: string;
-  link: string;
-  votes: number;
-  
-  constructor (title: string, link: string, votes?: number) {
-    this.title = title;
-    this.link = link;
-    this.votes = votes || 0;
-  }
+	title: string;
+	link: string;
+	votes: number;
 
-  voteUp(): void {
-    this.votes += 1;
-  }
+	constructor(title: string, link: string, votes?: number) {
+		this.title = title;
+		this.link = link;
+		this.votes = votes || 0;
+	}
 
-  voteDown(): void {
-    this.votes -= 1;
-  }
+	voteUp(): void {
+		this.votes += 1;
+	}
 
-  domain(): string {
-    try {
-      const domainAndPath: string = this.link.split('//')[1];
-      return domainAndPath.split('/')[0];
-    } catch (err) {
-      return null;
-    }
-  }
+	voteDown(): void {
+		this.votes -=1;
+	}
+
+	domain(): string {
+		try {
+			const domainAndPath: string = this.link.split('//')[1];
+			return domainAndPath.split('/')[0];
+		} catch (err) {
+			return null;
+		}
+	}
 }
